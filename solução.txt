@@ -1,0 +1,11 @@
+public class Solution {
+    public bool DetectCapitalUse(string word) {
+        return word switch {
+            _ when word.Any(char.IsDigit) => false,
+            _ when word == word.ToUpper() => true,
+            _ when word == word.ToLower() => true,
+            _ when char.IsUpper(word[0]) && word[1..] == word[1..].ToLower() => true, 
+            _ => false
+        };
+    }
+}
